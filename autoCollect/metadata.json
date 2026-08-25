@@ -1,0 +1,7 @@
+{
+  "name": "autoCollect",
+  "creator": "_kamishiro",
+  "description": "Automatically runs /collect when the prompt appears in chat. (Cuhtails' Freebuild)",
+  "version": "1.0.0",
+  "entry": "index.js"
+}
