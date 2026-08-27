@@ -1,6 +1,8 @@
 let colorCodesVisible = false;
+let hideSignMsgs = false;
 const colorCodesImg = new Image("ctjs-logo.png", "https://hypixel.net/attachments/1601529095179-png.2020411/"); // not sure what the ctjs-logo.png is for but i dont wanna break it so it stays
 
+// Color code reference chart
 
 function renderCC() {
     if (colorCodesVisible) {
@@ -32,3 +34,25 @@ function toggleColorCodes() {
 }
 
 register("command", toggleColorCodes).setName("colorcodes").setAliases("cc");
+
+// Hide Unable to locate sign messages
+
+function hideUnableToLocateSign(event) {
+    if (hideSignMsgs) {
+        cancel(event);
+    }
+}
+
+register("chat", hideUnableToLocateSign).setCriteria("Unable to locate sign at ${*}");
+
+function toggleHideSignMsgs() {
+    if (hideSignMsgs) {
+        ChatLib.chat("&6[Housing QOL] Now &eshowing &6\"Unable to locate sign\" messages!");
+        hideSignMsgs = false;
+    } else {
+        ChatLib.chat("&6[Housing QOL] Now &chiding &6\"Unable to locate sign\" messages!");
+        hideSignMsgs = true;
+    }
+}
+
+register("command", toggleHideSignMsgs).setName("signFix").setAliases("sf", "utlsf", "unableToLocateSignFix");

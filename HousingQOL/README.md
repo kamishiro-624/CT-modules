@@ -3,6 +3,7 @@ A Hypixel Housing module with (eventually) tons of QOL features. Updating semi-r
 
 ## Feature List
 - Color Code References [/colorcodes, /cc]
+- Hide the "Unable to locate sign at..." error message [/signFix, /sf, /utlsf, /unableToLocateSignFix]
 - Coming soon...
 
 # AI Usage
