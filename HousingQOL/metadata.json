@@ -2,6 +2,6 @@
   "name": "HousingQOL",
   "creator": "_kamishiro",
   "description": "Tons of QOL features for Hypixel Housing, full list on the GitHub.",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "entry": "index.js"
 }
