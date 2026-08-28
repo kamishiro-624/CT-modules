@@ -1,5 +1,6 @@
 import settings from "./config";
 import "./commands/colorCodeRef";
+import "./commands/commandAliases";
 
 register("command", () => {
     settings.openGui();

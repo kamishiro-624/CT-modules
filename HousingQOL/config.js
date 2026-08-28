@@ -11,6 +11,14 @@ mainConfig.addSwitch({
   value: true
 });
 
+mainConfig.addSwitch({
+  configName: "cmdAliases",
+  title: "Command Aliases",
+  description: "Enables aliases of commonly used Housing commands, full list in GitHub README."
+  category: "General",
+  value: false
+});
+
 const settings = new Settings("HousingQOL", mainConfig, "data/ColorScheme.json");
 
 export default settings;
