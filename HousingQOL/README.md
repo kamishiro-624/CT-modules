@@ -4,10 +4,14 @@ This module is still in development, so please report any bugs in the issues sec
 
 ## Feature List
 - Color Code References [/colorcodes, /cc]
-- Hide the "Unable to locate sign at..." error message [/signFix, /sf, /utlsf, /unableToLocateSignFix]
+- Hide the "Unable to locate sign at..." error message
 - Coming soon...
 
-# AI Usage
+## How to Configure and Use
+Run `/housingqol` or `/hqol` in-game to open the configuration GUI. Features in the feature list with commands next to them will not be present here, run the command to activate them.
+
+
+## AI Usage
 No generative AI was used on this project. All code was written by hand!!!
 
 

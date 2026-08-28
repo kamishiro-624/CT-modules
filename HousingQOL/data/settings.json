@@ -1,0 +1,12 @@
+[
+    {
+        "category": "General",
+        "settings": [
+            {
+                "type": 6,
+                "name": "signFix",
+                "value": false
+            }
+        ]
+    }
+]
