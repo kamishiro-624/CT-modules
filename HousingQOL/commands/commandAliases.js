@@ -2,34 +2,51 @@ import settings from "../config";
 
 // Housing Kick
 
-function housingKick(target) {
+function housingKickBulk(...args) {
     if (settings.settings.cmdAliases) {
-        if (target) {
-            ChatLib.say("/h kick " + target);
-            ChatLib.chat("&6&l[Housing QOL] Kicked &e" + target + " from your house!");
-        } else {
-            ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hk {player})");
+        if (args === undefined){
+            ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hk {player1} {player2} ...)");
+            return;
+        }
+
+        if (args.length) {
+            let index = 0;
+            args.forEach((target) => {
+                setTimeout(() => {
+                    ChatLib.say("/h kick " + target);
+                    ChatLib.chat("&6&l[Housing QOL] &r&eKicked &e" + target + " from your house!");
+                }, index * 1100);
+                index++;
+            });
         }
     } else {
         ChatLib.chat("&6&l[Housing QOL] &r&cCommand Aliases is currently disabled in settings.");
     }
 }
-register("command", housingKick).setName("hk");
+
+register("command", housingKickBulk).setName("hk");
 
     // Housing Ban
 
-function housingBan(target) {
+function housingBan(...args) {
     if (settings.settings.cmdAliases) {
-        if (target) {
-            ChatLib.say("/h ban " + target);
-            ChatLib.chat("&6&l[Housing QOL] Banned &e" + target + " from your house!");
-        } else {
-            ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hb {player})");
+        if (args === undefined){
+            ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hb {player1} {player2} ...)");
+            return;
+        }
+
+        if (args.length) {
+            let index = 0;
+            args.forEach((target) => {
+                setTimeout(() => {
+                    ChatLib.say("/h ban " + target);
+                    ChatLib.chat("&6&l[Housing QOL] &r&eBanned &e" + target + " from your house!");
+                }, index * 1100);
+                index++;
+            });
         }
     } else {
-            ChatLib.chat("&6&l[Housing QOL] &r&cCommand Aliases is currently disabled in settings.");
+        ChatLib.chat("&6&l[Housing QOL] &r&cCommand Aliases is currently disabled in settings.");
     }
 }
 register("command", housingBan).setName("hb");
-
-// NOTE: add support for actions on multiple players!! 

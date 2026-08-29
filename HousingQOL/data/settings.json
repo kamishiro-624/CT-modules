@@ -5,7 +5,12 @@
             {
                 "type": 6,
                 "name": "signFix",
-                "value": false
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "cmdAliases",
+                "value": true
             }
         ]
     }

@@ -14,7 +14,7 @@ mainConfig.addSwitch({
 mainConfig.addSwitch({
   configName: "cmdAliases",
   title: "Command Aliases",
-  description: "Enables aliases of commonly used Housing commands, full list in GitHub README."
+  description: "Enables aliases of commonly used Housing commands, full list in GitHub README.",
   category: "General",
   value: false
 });
