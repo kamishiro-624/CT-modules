@@ -20,7 +20,7 @@ Run `/housingqol` or `/hqol` in-game to open the configuration GUI. Features in 
 | /h mute &lt;player&gt; | /hm &lt;player1&gt; &lt;player2&gt; ... |
 | /h unban &lt;player&gt; | /hunban &lt;player1&gt; &lt;player2&gt; ... |
 | /h unmute &lt;player&gt; | /hunmute &lt;player1&gt; &lt;player2&gt; ... |
-| /testplaceholder &lt;message&gt; | /tph &lt;message/&gt; |
+| /testplaceholder &lt;message&gt; | /tph &lt;message&gt; |
 
 ## AI Usage
 No generative AI was used on this project. All code was written by hand!!!
