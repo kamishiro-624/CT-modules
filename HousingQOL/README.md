@@ -6,15 +6,21 @@ This module is still in development, so please report any bugs in the issues sec
 - Color Code References [/colorcodes, /cc]
 - Hide the "Unable to locate sign at..." error message
 - Command Aliases
+- View Variable Values [/viewvariable, /vv]
 - Coming soon...
 
 ## How to Configure and Use
 Run `/housingqol` or `/hqol` in-game to open the configuration GUI. Features in the feature list with commands next to them will not be present here, run the command to activate them.
 
 ## Command Aliases
-- /hk {player1} {player2} ... [/housing kick]
-- /hb {player1} {player2} ... [/housing ban]
-- Adding more soon
+| Hypixel | HousingQOL |
+| --- | --- |
+| /h kick &lt;player&gt; | /hk &lt;player1&gt; &lt;player2&gt; ... |
+| /h ban &lt;player&gt; | /hb &lt;player1&gt; &lt;player2&gt; ... |
+| /h mute &lt;player&gt; | /hm &lt;player1&gt; &lt;player2&gt; ... |
+| /h unban &lt;player&gt; | /hunban &lt;player1&gt; &lt;player2&gt; ... |
+| /h unmute &lt;player&gt; | /hunmute &lt;player1&gt; &lt;player2&gt; ... |
+| /testplaceholder &lt;message&gt; | /tph &lt;message/&gt; |
 
 ## AI Usage
 No generative AI was used on this project. All code was written by hand!!!

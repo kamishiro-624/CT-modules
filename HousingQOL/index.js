@@ -1,18 +1,6 @@
-import settings from "./config";
 import "./commands/colorCodeRef";
-import "./commands/commandAliases";
+import "./modules/commandAliases";
+import "./modules/signFix";
+import "./commands/viewVariable";
 
-register("command", () => {
-    settings.openGui();
-}).setName("housingqol").setAliases("hqol", "housingqolsettings", "housingqolconfig");
-
-register("step", () => {
-  if (settings.settings.signFix) {
-    function hideUnableToLocateSign(event) {
-        if (settings.settings.signFix) {
-            cancel(event);
-        }
-    }
-    register("chat", hideUnableToLocateSign).setCriteria("Unable to locate sign at ${*}");
-  }
-}).setFps(1);
+ChatLib.chat("&6&l[Housing QOL] &r&6Housing QOL has been loaded! Type &e/housingqol &r&6or &e/hqol &r&6to open the configuration GUI.");
