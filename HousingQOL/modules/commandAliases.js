@@ -157,7 +157,7 @@ function housingDemote(...args) {
             let index = 0;
             args.forEach((target) => {
                 setTimeout(() => {
-                    ChatLib.say("/h demote " + target);
+                    ChatLib.say("/dem " + target);
                     ChatLib.chat("&6&l[Housing QOL] &r&eDemoted &e" + target + " in your house!");
                 }, index * 1100);
                 index++;
@@ -168,6 +168,31 @@ function housingDemote(...args) {
     }
 }
 register("command", housingDemote).setName("hd");
+
+    // Warn (only some houses)
+
+function housingWarn(...args) {
+    if (settings.settings.cmdAliases) {
+        if (args === undefined){
+            ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hw <player1> <player2> ...)");
+            return;
+        }
+
+        if (args.length) {
+            let index = 0;
+            args.forEach((target) => {
+                setTimeout(() => {
+                    ChatLib.say("/warn " + target);
+                    ChatLib.chat("&6&l[Housing QOL] &r&eDemoted &e" + target + " in your house!");
+                }, index * 1100);
+                index++;
+            });
+        }
+    } else {
+        ChatLib.chat("&6&l[Housing QOL] &r&cCommand Aliases is currently disabled in settings.");
+    }
+}
+register("command", housingWarn).setName("hw");
 
     // Parkour Reset
 
