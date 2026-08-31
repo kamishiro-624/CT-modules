@@ -143,3 +143,44 @@ function testPlaceholder(...args) {
     }
 }
 register("command", testPlaceholder).setName("tph");
+
+    // Demote (only some houses)
+
+function housingDemote(...args) {
+    if (settings.settings.cmdAliases) {
+        if (args === undefined){
+            ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hd <player1> <player2> ...)");
+            return;
+        }
+
+        if (args.length) {
+            let index = 0;
+            args.forEach((target) => {
+                setTimeout(() => {
+                    ChatLib.say("/h demote " + target);
+                    ChatLib.chat("&6&l[Housing QOL] &r&eDemoted &e" + target + " in your house!");
+                }, index * 1100);
+                index++;
+            });
+        }
+    } else {
+        ChatLib.chat("&6&l[Housing QOL] &r&cCommand Aliases is currently disabled in settings.");
+    }
+}
+register("command", housingDemote).setName("hd");
+
+    // Parkour Reset
+
+register("command", () => {
+    if (settings.settings.cmdAliases) {
+        ChatLib.say("/parkour reset");
+    }
+}).setName("pkr");
+
+    // Parkour Checkpoint
+
+register("command", () => {
+    if (settings.settings.cmdAliases) {
+        ChatLib.say("/parkour checkpoint");
+    }
+}).setName("pkc");

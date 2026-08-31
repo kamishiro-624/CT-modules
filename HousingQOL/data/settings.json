@@ -11,6 +11,21 @@
                 "type": 6,
                 "name": "cmdAliases",
                 "value": true
+            },
+            {
+                "type": 6,
+                "name": "soundLogger",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "soundLoggerIncludeAll",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "soundLoggerShowPosition",
+                "value": false
             }
         ]
     }
