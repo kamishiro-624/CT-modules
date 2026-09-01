@@ -1,6 +1,7 @@
 # CT-modules
 ChatTriggers Modules for 1.8.9 Minecraft <br>
 **NOTE FROM DEV 8/30/26:** I may not be able to develop and update new modules for a month because I have been banned from Hypixel for "cheating and unfair advantages". I was working on a module which I believe to have caused this for myself, so I will not be adding it to this repo, even though it is finished. Sorry!!!! (I will resume development if my appeal is accepted or when I am unbanned next month.)
+**NOTE FROM DEV 8/31/26:** Development will resume shortly!!! My appeal was _not_ accepted, but I have obtained "other means" of accessing the server. ;)
 
 ## How to Download
 1. Download the folder containing all files of the module you want to install.
