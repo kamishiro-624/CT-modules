@@ -133,7 +133,57 @@ mainConfig.addSwitch({
   value: false
 });
 
+// Safe Creative
+mainConfig.addSwitch({
+  configName: "safeCreative",
+  title: "Safe Creative Mode",
+  description: "Prevents the breaking of some blocks while in creative mode.",
+  category: "General",
+  value: false
+});
 
+mainConfig.addMultiCheckbox({
+  configName: "safeCreativeConfig",
+  title: "SafeCreative Blocks",
+  description: "Toggle specific blocks for Safe Creative. (You can scroll in the menu.)",
+  category: "General",
+  placeHolder: "Edit",
+  subcategory: null,
+
+  options: [
+    {
+      title: "Chest",
+      configName: "Chest",
+      value: true
+    },
+    {
+      title: "Trapped Chest",
+      configName: "Trapped_Chest",
+      value: true
+    },
+    {
+      title: "Hopper",
+      configName: "Hopper",
+      value: true
+    },
+    {
+      title: "Dropper",
+      configName: "Dropper",
+      value: true
+    },
+    {
+      title: "Dispenser",
+      configName: "Dispenser",
+      value: true
+    },
+    {
+      title: "Furnace",
+      configName: "Furnace",
+      value: true
+    }
+  ]
+
+});
 
 const settings = new Settings("HousingQOL", mainConfig, "data/ColorScheme.json");
 
