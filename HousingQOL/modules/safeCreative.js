@@ -6,11 +6,26 @@ function blockBroken(block, event) {
     const targetBlock = block.type.name;
     const blockOptions = settings.settings.safeCreativeConfig.options;
 
+    let customBlocks = "null";
+    const CSCCvalue = settings.settings.customSafeCreativeConfig.value;
+    
+    if (CSCCvalue) {
+        customBlocks = CSCCvalue.split(" ");
+
+        for (const blockName of customBlocks) {
+            if (targetBlock === blockName) {
+                cancel(event);
+                ChatLib.chat("&6&l[Housing QOL] &r&6SafeCreative prevented you from breaking &e" + targetBlock + "&6!")
+                return;
+            }
+        }
+    }
+
     for (const blockName of blockOptions) {
         if (targetBlock === blockName.configName && blockName.value) {
             cancel(event);
             ChatLib.chat("&6&l[Housing QOL] &r&6SafeCreative prevented you from breaking &e" + targetBlock + "&6!")
-            break;
+            return;
         }
     }
 }

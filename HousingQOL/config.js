@@ -150,6 +150,8 @@ mainConfig.addMultiCheckbox({
   placeHolder: "Edit",
   subcategory: null,
 
+  // Change configName values to their return value when detected by CT register
+
   options: [
     {
       title: "Chest",
@@ -181,8 +183,24 @@ mainConfig.addMultiCheckbox({
       configName: "Furnace",
       value: true
     }
-  ]
+  ],
 
+  shouldShow(data) {
+    return data.safeCreative;
+  }
+})
+
+mainConfig.addTextInput({
+  configName: "customSafeCreativeConfig",
+  title: "Custom Blacklist",
+  description: "Put a list of the block ids that should be included in the custom blacklist. Seperate distinct IDs with spaces.",
+  category: "General",
+  value: "",
+  placeHolder: "placeholder",
+
+  shouldShow(data) {
+    return data.safeCreative;
+  }
 });
 
 const settings = new Settings("HousingQOL", mainConfig, "data/ColorScheme.json");
