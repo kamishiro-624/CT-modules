@@ -182,6 +182,11 @@ mainConfig.addMultiCheckbox({
       title: "Furnace",
       configName: "Furnace",
       value: true
+    },
+    {
+      title: "Sign",
+      configName: "Sign",
+      value: true
     }
   ],
 
