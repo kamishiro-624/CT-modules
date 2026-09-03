@@ -1,6 +1,6 @@
 [
     {
-        "category": "General",
+        "category": "Chat",
         "settings": [
             {
                 "type": 6,
@@ -9,8 +9,64 @@
             },
             {
                 "type": 6,
+                "name": "noAsterisk",
+                "value": false
+            }
+        ]
+    },
+    {
+        "category": "General",
+        "settings": [
+            {
+                "type": 6,
                 "name": "cmdAliases",
                 "value": true
+            },
+            {
+                "type": 8,
+                "name": "cmdAliasesConfig",
+                "options": [
+                    {
+                        "name": "housingKickToggle",
+                        "value": false
+                    },
+                    {
+                        "name": "housingBanToggle",
+                        "value": false
+                    },
+                    {
+                        "name": "housingMuteToggle",
+                        "value": false
+                    },
+                    {
+                        "name": "housingUnbanToggle",
+                        "value": false
+                    },
+                    {
+                        "name": "housingUnmuteToggle",
+                        "value": false
+                    },
+                    {
+                        "name": "testPlaceholdersToggle",
+                        "value": false
+                    },
+                    {
+                        "name": "housingDemoteToggle",
+                        "value": false
+                    },
+                    {
+                        "name": "housingWarnToggle",
+                        "value": false
+                    },
+                    {
+                        "name": "parkourResetToggle",
+                        "value": false
+                    },
+                    {
+                        "name": "parkourCheckpointToggle",
+                        "value": false
+                    }
+                ]
             },
             {
                 "type": 6,

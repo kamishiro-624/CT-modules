@@ -3,6 +3,8 @@ import settings from "../config";
     // Housing Kick
 
 function housingKick(...args) {
+    if (!settings.settings.housingKickToggle) return;
+
     if (settings.settings.cmdAliases) {
         if (args === undefined){
             ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hk <player1> <player2> ...)");
@@ -29,6 +31,8 @@ register("command", housingKick).setName("hk");
     // Housing Ban
 
 function housingBan(...args) {
+    if (!settings.settings.housingBanToggle) return;
+
     if (settings.settings.cmdAliases) {
         if (args === undefined){
             ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hb <player1> <player2> ...)");
@@ -54,6 +58,8 @@ register("command", housingBan).setName("hb");
     // Housing Mute
 
 function housingMute(...args) {
+    if (!settings.settings.housingMuteToggle) return;
+
     if (settings.settings.cmdAliases) {
         if (args === undefined){
             ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hm <player1> <player2> ...)");
@@ -79,6 +85,8 @@ register("command", housingMute).setName("hm");
     // Housing Unban
 
 function housingUnban(...args) {
+    if (!settings.settings.housingUnbanToggle) return;
+
     if (settings.settings.cmdAliases) {
         if (args === undefined){
             ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hunban <player1> <player2> ...)");
@@ -104,6 +112,8 @@ register("command", housingUnban).setName("hunban");
     // Housing Unmute
 
 function housingUnmute(...args) {
+    if (!settings.settings.housingUnmuteToggle) return;
+
     if (settings.settings.cmdAliases) {
         if (args === undefined){
             ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hunmute <player1> <player2> ...)");
@@ -129,6 +139,8 @@ register("command", housingUnmute).setName("hunmute");
     // TestPlaceHolders
 
 function testPlaceholder(...args) {
+    if (!settings.settings.testPlaceholdersToggle) return;
+
     if (settings.settings.cmdAliases) {
         const placeholder = args.join(" ");
 
@@ -147,6 +159,8 @@ register("command", testPlaceholder).setName("tph");
     // Demote (only some houses)
 
 function housingDemote(...args) {
+    if (!settings.settings.housingDemoteToggle) return;
+
     if (settings.settings.cmdAliases) {
         if (args === undefined){
             ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hd <player1> <player2> ...)");
@@ -172,6 +186,8 @@ register("command", housingDemote).setName("hd");
     // Warn (only some houses)
 
 function housingWarn(...args) {
+    if (!settings.settings.housingWarnToggle) return;
+
     if (settings.settings.cmdAliases) {
         if (args === undefined){
             ChatLib.chat("&6&l[Housing QOL] &r&cInvalid arguments provided! (/hw <player1> <player2> ...)");
@@ -197,6 +213,8 @@ register("command", housingWarn).setName("hw");
     // Parkour Reset
 
 register("command", () => {
+    if (!settings.settings.parkourResetToggle) return;
+
     if (settings.settings.cmdAliases) {
         ChatLib.say("/parkour reset");
     }
@@ -205,6 +223,8 @@ register("command", () => {
     // Parkour Checkpoint
 
 register("command", () => {
+    if (!settings.settings.parkourCheckpointToggle) return;
+
     if (settings.settings.cmdAliases) {
         ChatLib.say("/parkour checkpoint");
     }
