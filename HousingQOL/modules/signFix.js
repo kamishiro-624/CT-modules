@@ -1,16 +1,9 @@
 import settings from "../config";
 
-register("command", () => {
-    settings.openGui();
-}).setName("housingqol").setAliases("hqol", "housingqolsettings", "housingqolconfig");
-
-register("step", () => {
+function hideUnableToLocateSign(event) {
   if (settings.settings.signFix) {
-    function hideUnableToLocateSign(event) {
-        if (settings.settings.signFix) {
-            cancel(event);
-        }
-    }
-    register("chat", hideUnableToLocateSign).setCriteria("Unable to locate sign at ${*}");
+    cancel(event);
   }
-}).setFps(1);
+}
+
+register("chat", hideUnableToLocateSign).setCriteria("Unable to locate sign at ${*}");
