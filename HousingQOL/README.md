@@ -1,15 +1,18 @@
 # HousingQOL
 A Hypixel Housing module with (eventually) tons of QOL features. Updating semi-regularly. Any and all contributions are welcome and recommended.
-This module is still in development, so please report any bugs in the issues section of the GitHub.
+This module is still in development, so please report any bugs in the issues section of the GitHub. **Star and/or watch this project** to show your support and be notified of the latest updates!
 
 ## Feature List
 - Color Code References [/colorcodes, /cc]
 - Hide the "Unable to locate sign at..." error message
 - Command Aliases
 - View Variable Values [/viewvariable, /vv]
+  - /vv &lt;scope&gt; &lt;player&gt;
 - Sound Logger
 - Hide asterisks from incoming housing messages
 - Safe Creative - Block list [here](util/scBlockArrays.js).
+  - [BLOCK]:[METADATA], ... (eg. Dirt, Grass Block, Wool:3, Stone:A)
+  - [BLOCK]:A will filter all blocks in that metadata group.
 - Coming soon...
 
 ## How to Configure and Use
@@ -29,7 +32,6 @@ Run `/housingqol` or `/hqol` in-game to open the configuration GUI. Features in 
 
 ## AI Usage
 No generative AI was used on this project. All code was written by hand!!!
-
 
 This module is provided "as is" without warranty of any kind, express or implied. 
 The creator, _kamishiro, is not responsible for any bans, mutes, profile wipes, or data loss 
