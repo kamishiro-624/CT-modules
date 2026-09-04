@@ -155,7 +155,7 @@ mainConfig.addTextInput({
   description: "Put block names with metadata in the custom blacklist, separated by commas. Check README for block list and more info. (Highly recommended!)",
   category: "General",
   value: "",
-  placeHolder: "",
+  placeHolder: "Grass Block, Wool:3, Stone:A",
 
   shouldShow(data) {
     return data.safeCreative;
