@@ -88,6 +88,80 @@ mainConfig.addMultiCheckbox({
     }
 });
 
+// Safe Creative
+mainConfig.addSwitch({
+  configName: "safeCreative",
+  title: "Safe Creative Mode",
+  description: "Prevents the breaking of specified blocks while in creative mode.",
+  category: "General",
+  value: false
+});
+
+export const safeCreativeConfigOptions = [
+   {
+      title: "Chest",
+      configName: "Chest",
+      value: true
+    },
+    {
+      title: "Trapped Chest",
+      configName: "Trapped Chest",
+      value: true
+    },
+    {
+      title: "Hopper",
+      configName: "Hopper",
+      value: true
+    },
+    {
+      title: "Dropper",
+      configName: "Dropper",
+      value: true
+    },
+    {
+      title: "Dispenser",
+      configName: "Dispenser",
+      value: true
+    },
+    {
+      title: "Furnace",
+      configName: "Furnace",
+      value: true
+    },
+    {
+      title: "Sign",
+      configName: "Sign",
+      value: true
+    }
+]
+
+mainConfig.addMultiCheckbox({
+  configName: "safeCreativeConfig",
+  title: "Safe Creative Blocks",
+  description: "Toggle a list of preset blocks for Safe Creative. (You can scroll in the menu.)",
+  category: "General",
+  placeHolder: "Edit",
+
+  options: safeCreativeConfigOptions,
+
+  shouldShow(data) {
+    return data.safeCreative;
+  }
+})
+
+mainConfig.addTextInput({
+  configName: "customSafeCreativeConfig",
+  title: "Custom Blacklist",
+  description: "Put block names with metadata in the custom blacklist, separated by commas. Check README for block list and more info. (Highly recommended!)",
+  category: "General",
+  value: "",
+  placeHolder: "",
+
+  shouldShow(data) {
+    return data.safeCreative;
+  }
+});
+
   // Sound Logger
 mainConfig.addSwitch({
   configName: "soundLogger",
@@ -133,87 +207,12 @@ mainConfig.addSwitch({
   value: false
 });
 
-// Safe Creative
-mainConfig.addSwitch({
-  configName: "safeCreative",
-  title: "Safe Creative Mode",
-  description: "Prevents the breaking of some blocks while in creative mode.",
-  category: "General",
-  value: false
-});
-
-mainConfig.addMultiCheckbox({
-  configName: "safeCreativeConfig",
-  title: "SafeCreative Blocks",
-  description: "Toggle specific blocks for Safe Creative. (You can scroll in the menu.)",
-  category: "General",
-  placeHolder: "Edit",
-  subcategory: null,
-
-  // Change configName values to their return value when detected by CT register
-
-  options: [
-    {
-      title: "Chest",
-      configName: "Chest",
-      value: true
-    },
-    {
-      title: "Trapped Chest",
-      configName: "Trapped_Chest",
-      value: true
-    },
-    {
-      title: "Hopper",
-      configName: "Hopper",
-      value: true
-    },
-    {
-      title: "Dropper",
-      configName: "Dropper",
-      value: true
-    },
-    {
-      title: "Dispenser",
-      configName: "Dispenser",
-      value: true
-    },
-    {
-      title: "Furnace",
-      configName: "Furnace",
-      value: true
-    },
-    {
-      title: "Sign",
-      configName: "Sign",
-      value: true
-    }
-  ],
-
-  shouldShow(data) {
-    return data.safeCreative;
-  }
-})
-
-mainConfig.addTextInput({
-  configName: "customSafeCreativeConfig",
-  title: "Custom Blacklist",
-  description: "Put a list of the block ids that should be included in the custom blacklist. Seperate distinct IDs with spaces.",
-  category: "General",
-  value: "",
-  placeHolder: "placeholder",
-
-  shouldShow(data) {
-    return data.safeCreative;
-  }
-});
-
 const settings = new Settings("HousingQOL", mainConfig, "data/ColorScheme.json");
 
 // This code block was genuinely confusing, I still don't really know how it works but hopefully I can get a better grasp on it soon...
 settings.setCategorySort((a, b) => {
   const order = ["General", "Chat"];
   return order.indexOf(a.category) - order.indexOf(b.category);
-}).apply(); 
+}).apply();
 
 export default settings;

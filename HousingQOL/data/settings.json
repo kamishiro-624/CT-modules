@@ -28,45 +28,89 @@
                 "options": [
                     {
                         "name": "housingKickToggle",
-                        "value": false
+                        "value": true
                     },
                     {
                         "name": "housingBanToggle",
-                        "value": false
+                        "value": true
                     },
                     {
                         "name": "housingMuteToggle",
-                        "value": false
+                        "value": true
                     },
                     {
                         "name": "housingUnbanToggle",
-                        "value": false
+                        "value": true
                     },
                     {
                         "name": "housingUnmuteToggle",
-                        "value": false
+                        "value": true
                     },
                     {
                         "name": "testPlaceholdersToggle",
-                        "value": false
+                        "value": true
                     },
                     {
                         "name": "housingDemoteToggle",
-                        "value": false
+                        "value": true
                     },
                     {
                         "name": "housingWarnToggle",
-                        "value": false
+                        "value": true
                     },
                     {
                         "name": "parkourResetToggle",
-                        "value": false
+                        "value": true
                     },
                     {
                         "name": "parkourCheckpointToggle",
-                        "value": false
+                        "value": true
                     }
                 ]
+            },
+            {
+                "type": 6,
+                "name": "safeCreative",
+                "value": true
+            },
+            {
+                "type": 8,
+                "name": "safeCreativeConfig",
+                "options": [
+                    {
+                        "name": "Chest",
+                        "value": true
+                    },
+                    {
+                        "name": "Trapped Chest",
+                        "value": true
+                    },
+                    {
+                        "name": "Hopper",
+                        "value": true
+                    },
+                    {
+                        "name": "Dropper",
+                        "value": true
+                    },
+                    {
+                        "name": "Dispenser",
+                        "value": true
+                    },
+                    {
+                        "name": "Furnace",
+                        "value": true
+                    },
+                    {
+                        "name": "Sign",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "type": 4,
+                "name": "customSafeCreativeConfig",
+                "value": "Stone:A"
             },
             {
                 "type": 6,

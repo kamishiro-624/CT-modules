@@ -1,9 +1,12 @@
+import settings from "./config";
+
 import "./commands/colorCodeRef";
 import "./modules/commandAliases";
 import "./modules/signFix";
 import "./commands/viewVariable";
 import "./modules/soundLogger";
 import "./modules/noAsterisk";
+import "./modules/safeCreative";
 
 register("command", () => {
     settings.openGui();

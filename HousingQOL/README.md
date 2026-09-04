@@ -9,6 +9,7 @@ This module is still in development, so please report any bugs in the issues sec
 - View Variable Values [/viewvariable, /vv]
 - Sound Logger
 - Hide asterisks from incoming housing messages
+- Safe Creative - Block list [here](link.com).
 - Coming soon...
 
 ## How to Configure and Use
