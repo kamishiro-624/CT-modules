@@ -18,7 +18,7 @@ This module is still in development, so please report any bugs in the issues sec
   - Copy Chat Message
     - Copy with formatting tags
   - Display formatting tags in chat (Previews all &. tags in the chat)
-  - Will add more next commit!
+  - Mute player (/h mute)
 - Coming soon...
 
 ## How to Configure and Use

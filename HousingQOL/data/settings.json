@@ -1,5 +1,53 @@
 [
     {
+        "category": "Chat",
+        "settings": [
+            {
+                "type": 6,
+                "name": "signFix",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "noAsterisk",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "chatUtilities",
+                "value": true
+            },
+            {
+                "type": 8,
+                "name": "chatUtilConfig",
+                "options": [
+                    {
+                        "name": "chatUtilTpPlr",
+                        "value": true
+                    },
+                    {
+                        "name": "chatUtilCopyMsg",
+                        "value": true
+                    },
+                    {
+                        "name": "chatUtilHmutePlr",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "type": 6,
+                "name": "addFormattingCopyMsg",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "showFormattingInChat",
+                "value": false
+            }
+        ]
+    },
+    {
         "category": "General",
         "settings": [
             {
@@ -110,50 +158,6 @@
             {
                 "type": 6,
                 "name": "soundLoggerShowPosition",
-                "value": false
-            }
-        ]
-    },
-    {
-        "category": "Chat",
-        "settings": [
-            {
-                "type": 6,
-                "name": "signFix",
-                "value": true
-            },
-            {
-                "type": 6,
-                "name": "noAsterisk",
-                "value": false
-            },
-            {
-                "type": 6,
-                "name": "chatUtilities",
-                "value": true
-            },
-            {
-                "type": 8,
-                "name": "chatUtilConfig",
-                "options": [
-                    {
-                        "name": "chatUtilTpPlr",
-                        "value": true
-                    },
-                    {
-                        "name": "chatUtilCopyMsg",
-                        "value": true
-                    }
-                ]
-            },
-            {
-                "type": 6,
-                "name": "addFormattingCopyMsg",
-                "value": true
-            },
-            {
-                "type": 6,
-                "name": "showFormattingInChat",
                 "value": false
             }
         ]

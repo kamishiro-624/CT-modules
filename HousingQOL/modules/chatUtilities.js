@@ -28,6 +28,11 @@ function addTags(event) {
         if (copyTag) tags.push(copyTag, " "); // js arraylist
     }
 
+    if (settings.settings.chatUtilHmutePlr) {
+        const muteTag = hmutePlayer(chatMessage);
+        if (muteTag) tags.push(muteTag, " ");
+    }
+
     if (tags.length === 0) return;
 
     cancel(event);
@@ -90,4 +95,16 @@ function copyMessage(chatMessage) {
     }
 
     return new TextComponent("&e[C]").setClick("run_command", "/hIcM " + finalMessage).setHover("show_text", "Click to copy message to clipboard");
+}
+
+function hmutePlayer(chatMessage) {
+    const cleanMessage = chatMessage.removeFormatting();
+
+    const match = cleanMessage.match(plrMessageRegex);
+	if (!match) return;
+
+    const player = match[1];
+    const message = match[2];
+
+    return new TextComponent("&c[M]").setClick("run_command", "/h mute " + player).setHover("show_text", "Click to mute &e" + player);
 }

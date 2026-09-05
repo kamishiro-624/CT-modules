@@ -233,6 +233,10 @@ mainConfig.addMultiCheckbox({
         title: "Copy Message",
         configName: "chatUtilCopyMsg",
         value: true
+      }, {
+        title: "Housing Mute Player",
+        configName: "chatUtilHmutePlr",
+        value: true
       }
     ],
 
