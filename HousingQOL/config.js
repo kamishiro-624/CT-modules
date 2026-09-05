@@ -207,7 +207,67 @@ mainConfig.addSwitch({
   value: false
 });
 
+// Chat Utilities
+mainConfig.addSwitch({
+  configName: "chatUtilities",
+  title: "Chat Utilities",
+  description: "Provides various utilities relating to chat messages.",
+  category: "Chat",
+  value: false
+});
+
+mainConfig.addMultiCheckbox({
+    configName: "chatUtilConfig",
+    title: "Toggle Specific Chat Utilities",
+    description: "Toggle on and off specific utilities for Chat Utilities. (You can scroll in the menu.)",
+    category: "Chat",
+    placeHolder: "View Commands",
+    subcategory: null,
+
+    options: [
+      {
+        title: "Teleport To Player",
+        configName: "chatUtilTpPlr",
+        value: true
+      }, {
+        title: "Copy Message",
+        configName: "chatUtilCopyMsg",
+        value: true
+      }
+    ],
+
+    shouldShow(data) {
+      return data.chatUtilities;
+    }
+});
+
+mainConfig.addSwitch({
+  configName: "addFormattingCopyMsg",
+  title: "Add Formatting to Copied Messages",
+  description: "Adds formatting tags (color codes) to messages when copying them.",
+  category: "Chat",
+  value: false,
+
+  shouldShow(data) {
+    return data.chatUtilCopyMsg && data.chatUtilities;
+  }
+});
+
+mainConfig.addSwitch({
+  configName: "showFormattingInChat",
+  title: "Show formatting in chat",
+  description: "Adds formatting (color codes) to messages when they are sent in chat.",
+  category: "Chat",
+  value: false,
+
+  shouldShow(data) {
+    return data.chatUtilities;
+  }
+});
+
 const settings = new Settings("HousingQOL", mainConfig, "data/ColorScheme.json");
+
+settings.onCloseGui(() => settings.configsClass._saveToFile());
 
 // This code block was genuinely confusing, I still don't really know how it works but hopefully I can get a better grasp on it soon...
 settings.setCategorySort((a, b) => {

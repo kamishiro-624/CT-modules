@@ -7,6 +7,7 @@ import "./commands/viewVariable";
 import "./modules/soundLogger";
 import "./modules/noAsterisk";
 import "./modules/safeCreative";
+import "./modules/chatUtilities";
 
 register("command", () => {
     settings.openGui();
