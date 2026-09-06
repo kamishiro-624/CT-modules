@@ -52,7 +52,7 @@ function addTags(event) {
         }
 
         const playerMessage = match[2];
-        console.log("match2: " + playerMessage);
+        // console.log("match2: " + playerMessage);
 
         if (playerMessage.includes("&")) {
             const messageObj = new Message(event);
