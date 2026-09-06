@@ -43,7 +43,7 @@
             {
                 "type": 6,
                 "name": "showFormattingInChat",
-                "value": false
+                "value": true
             }
         ]
     },

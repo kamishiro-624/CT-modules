@@ -8,6 +8,7 @@ import "./modules/soundLogger";
 import "./modules/noAsterisk";
 import "./modules/safeCreative";
 import "./modules/chatUtilities";
+import "./modules/circleGen";
 
 register("command", () => {
     settings.openGui();

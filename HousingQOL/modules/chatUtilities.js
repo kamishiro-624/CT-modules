@@ -1,7 +1,7 @@
 import settings from "../config";
 import { copyText } from "../util/chatUtils";
 
-const plrMessageRegex = /^\s*\+?\s*(?:(?:[A-Za-z]+)\s*>\s*|(?:From|To)\s+)?(?:\[[^\]]+\]\s*)*([A-Za-z0-9_]{1,16}):\s+(.+)$/
+const plrMessageRegex = /^(?:[\xA7&][0-9a-fk-or])*\s*\+?\s*(?:(?:[\xA7&][0-9a-fk-or])*(?:[A-Za-z]+)\s*>\s*|(?:[\xA7&][0-9a-fk-or])*(?:From|To)\s+)?(?:(?:[\xA7&][0-9a-fk-or])*\[[^\]]+\]\s*)*(?:[\xA7&][0-9a-fk-or])*([A-Za-z0-9_]{1,16})(?:[\xA7&][0-9a-fk-or])*:\s+(.+)$/
 
 register("command", (...textSplit) => {
     const text = textSplit.join(" ")
@@ -12,7 +12,6 @@ register("command", (...textSplit) => {
 }).setName("hIcM");
 
 function addTags(event) {
-    let finalMsg = "&cError occured in HousingQOL, please report.";
     if (!settings.settings.chatUtilities) return;
 
     const chatMessage = ChatLib.getChatMessage(event, true);
@@ -37,13 +36,64 @@ function addTags(event) {
 
     cancel(event);
 
-    finalMsg = formatChatMessage(chatMessage);
-    ChatLib.chat(new Message(finalMsg + " ", ...tags));
+    if (!settings.settings.showFormattingInChat) {
+        sendMessage(event, tags);
+    } else { // I SWEAR THIS TOOK LIKE 5 HOURS WTF?? (I WAS MUTED ON HYPIXEL WHEN MAKING IT TYSM BOAT42 FOR HELPING ME TEST)
+        // const message = ChatLib.getChatMessage(event, true);
+        const cleanMessage = ChatLib.getChatMessage(event);
+        const match = cleanMessage.match(plrMessageRegex);
+
+        // console.log("CM: " + cleanMessage);
+
+        if (!match) {
+            sendMessage(event, tags);
+            // ChatLib.chat("no match");
+            return;
+        }
+
+        const playerMessage = match[2];
+        console.log("match2: " + playerMessage);
+
+        if (playerMessage.includes("&")) {
+            const messageObj = new Message(event);
+            
+            // console.log("MO: " + messageObj);
+
+            // const messagePrefixes = cleanMessage.substring(0,cleanMessage.indexOf(match[2]));
+            const messageParts = messageObj.getMessageParts();
+
+            // const replacementPart = new TextComponent(replacementText)
+            //    .setFormatted(true);
+
+            for (let index = 0; index < messageParts.length; index++) {
+                const messagePart = messageParts[index];
+                messagePart.setText(messagePart.getText().replace(/&/g, "§").trim());
+            }
+
+            // ChatLib.chat("TB: " + messagePrefixes);
+            //ChatLib.chat(messageObj);
+            
+            messageObj.addTextComponent(" ");
+            tags.forEach((tag) => messageObj.addTextComponent(tag));
+            ChatLib.chat(messageObj);
+
+        } else {
+            sendMessage(event, tags);
+        }
+    }
 }
+
+function sendMessage(event, tags) {
+    const message = new Message(event);
+    message.addTextComponent(" ");
+    tags.forEach((tag) => message.addTextComponent(tag));
+    ChatLib.chat(message);
+}
+
 
 register("chat", addTags);
 
-function formatChatMessage(chatMessage) {
+/* function formatChatMessage(chatMessage) {
     if (settings.settings.showFormattingInChat) return chatMessage;
 
     const cleanMessage = chatMessage.removeFormatting();
@@ -54,7 +104,7 @@ function formatChatMessage(chatMessage) {
     const rawContentStart = getRawIndex(cleanMessage, chatMessage, contentStart);
 
     return chatMessage.slice(0, rawContentStart) + chatMessage.slice(rawContentStart).removeFormatting();
-}
+} */
 
 function getRawIndex(cleanMessage, rawMessage, cleanIndex) {
     let rawIndex = 0;

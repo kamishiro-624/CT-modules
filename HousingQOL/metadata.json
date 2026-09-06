@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "entry": "index.js",
   "requires": [
-    "Amaterasu"
+    "Amaterasu",
+    "RenderLibV2"
   ]
 }
