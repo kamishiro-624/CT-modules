@@ -1,1 +1,1 @@
-register("chat", (player, message, event) => {ChatLib.say("/collect");}).setCriteria("* First person to type /collect will earn free coins!").setContains();
+register("chat", () => {ChatLib.say("/collect");}).setCriteria("* First person to type /collect will earn free coins!").setContains();
