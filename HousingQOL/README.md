@@ -19,6 +19,8 @@ This module is still in development, so please report any bugs in the issues sec
     - Copy with formatting tags
   - Display formatting tags in chat (Previews all &. tags in the chat)
   - Mute player (/h mute)
+- Circle Generator
+  - Render in GUI or with [/rendercircle, /rc]
 - Coming soon...
 
 ## How to Configure and Use

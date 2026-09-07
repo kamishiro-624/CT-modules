@@ -269,13 +269,112 @@ mainConfig.addSwitch({
   }
 });
 
+mainConfig.addSwitch({
+  configName: "circleGenerator",
+  title: "Circle Generator",
+  description: "Generates and renders circles given origin and radius.",
+  category: "Building",
+  value: false
+});
+
+mainConfig.addTextInput({
+  configName: "circleX",
+  title: "Origin X Coordinate",
+  description: "X Coordinate for the origin of the circle; leave blank to use player position.",
+  category: "Building",
+  value: "",
+  placeHolder: "X",
+
+  shouldShow(data) {
+    return data.circleGenerator;
+  }
+});
+
+mainConfig.addTextInput({
+  configName: "circleY",
+  title: "Origin Y Coordinate",
+  description: "Y Coordinate for the origin of the circle; leave blank to use player position.",
+  category: "Building",
+  value: "",
+  placeHolder: "Y",
+
+  shouldShow(data) {
+    return data.circleGenerator;
+  }
+});
+
+mainConfig.addTextInput({
+  configName: "circleZ",
+  title: "Origin Z Coordinate",
+  description: "Z Coordinate for the origin of the circle; leave blank to use player position.",
+  category: "Building",
+  value: "",
+  placeHolder: "Z",
+
+  shouldShow(data) {
+    return data.circleGenerator;
+  }
+});
+
+mainConfig.addTextInput({
+  configName: "circleR",
+  title: "Circle Radius",
+  description: "Radius of the circle. Do not leave blank.",
+  category: "Building",
+  value: "",
+  placeHolder: "10",
+
+  shouldShow(data) {
+    return data.circleGenerator;
+  }
+});
+
+mainConfig.addButton({
+  configName: "circleRenderBtn",
+  title: "Render Circle",
+  description: "Click to toggle rendering the circle.",
+  category: "Building",
+
+  onClick() {
+    ChatLib.command("rendercircle", true);
+  },
+  shouldShow(data) {
+    return data.circleGenerator;
+  }
+})
+
+mainConfig.addSwitch({
+  configName: "circleUpright",
+  title: "Upright Circle",
+  description: "Causes the circle to be rendered upright instead of on the ground. Do not change X Y Z values. You may or may not need to re-render the circle.",
+  category: "Building",
+  value: false,
+
+  shouldShow(data) {
+    return data.circleGenerator;
+  }
+});
+
+mainConfig.addSwitch({
+  configName: "circleRotate",
+  title: "Rotated Circle",
+  description: "Rotates the circle 90 degrees. You may or may not need to re-render the circle.",
+  category: "Building",
+  value: false,
+
+  shouldShow(data) {
+    return data.circleGenerator;
+  }
+});
+
+
 const settings = new Settings("HousingQOL", mainConfig, "data/ColorScheme.json");
 
 settings.onCloseGui(() => settings.configsClass._saveToFile());
 
 // This code block was genuinely confusing, I still don't really know how it works but hopefully I can get a better grasp on it soon...
 settings.setCategorySort((a, b) => {
-  const order = ["General", "Chat"];
+  const order = ["General", "Chat", "Building"];
   return order.indexOf(a.category) - order.indexOf(b.category);
 }).apply();
 

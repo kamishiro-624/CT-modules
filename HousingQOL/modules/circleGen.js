@@ -1,9 +1,39 @@
 import RenderLibV2 from "RenderLibV2";
+import settings from "../config";
 
-const r = 15; // radius
-const xc = -80; // Center x
-const zc = 85; // Center z
-const yc = 2; // Center y
+let r = 10; // radius
+let xc = 0; // Center x
+let zc = 0; // Center z
+let yc = 0; // Center y
+
+let fPArray = [];
+
+function updateOrigin() {
+    if (settings.settings.circleX !== "") {
+        xc = Number(settings.settings.circleX);
+    } else {
+        xc = Math.round(Player.getX());
+    }
+
+    if (settings.settings.circleY !== "") {
+        yc = Number(settings.settings.circleY);
+    } else {
+        yc = Math.round(Player.getY());
+    }
+
+    if (settings.settings.circleZ !== "") {
+        zc = Number(settings.settings.circleZ);
+    } else {
+        zc = Math.round(Player.getZ());
+    }
+
+    if (settings.settings.circleR !== "") {
+        r = Number(settings.settings.circleR);
+    } else {
+        r = 10; // default
+    }
+}
+
 let rendering = false;
 
 const foundPoints = {};
@@ -13,6 +43,8 @@ function addPoint(x, y) {
 }
 
 function getCirclePoints(radius, centerX, centerY) {
+    Object.keys(foundPoints).forEach((point) => delete foundPoints[point]);
+
     let x = 0;
     let y = radius; // this is actually z but imagine its 2d
     let p = 1 - radius;
@@ -46,27 +78,61 @@ function getCirclePoints(radius, centerX, centerY) {
         
         addSymmetricPoints(centerX, centerY, x, y);
     }
+
+    fPArray = Object.keys(foundPoints);
 }
 
-getCirclePoints(r, xc, zc);
+function getRenderCoordinates(point) {
+    const values = point.split(",");
+    const pointX = Number(values[0]);
+    const pointSecond = Number(values[1]);
+    const upright = settings.settings.circleUpright;
+    const rotated = settings.settings.circleRotate;
 
-const fPArray = Object.keys(foundPoints);
+    const xOffset = pointX - xc;
+    const secondOffset = pointSecond - zc;
+
+    if (upright && rotated) {
+        return {
+            x: xc,
+            y: yc + secondOffset,
+            z: zc + xOffset
+        };
+    }
+
+    if (upright) {
+        return {
+            x: xc + xOffset,
+            y: yc + secondOffset,
+            z: zc
+        };
+    }
+
+    return {
+        x: xc + xOffset,
+        y: yc,
+        z: zc + secondOffset
+    };
+}
 
 register("command", () => {
-    ChatLib.chat("&6&l[Housing QOL] &r&6This module is still a WIP!");
+    updateOrigin();
+    getCirclePoints(r, xc, zc);
+    renderCircle(xc, yc, zc, r);
+}).setName("rendercircle").setAliases("rc");
 
+export function renderCircle(xc, yc, zc, r) {
     rendering = !rendering;
-    ChatLib.chat(rendering);
-}).setName("renderCircle");
+    if (rendering) ChatLib.chat("&6&l[Housing QOL] &r&6Rendering circle at &e" + xc + ", " + yc + ", " + zc + " &6with radius of &e" + r + "!");
+    if (!rendering) ChatLib.chat("&6&l[Housing QOL] &r&6No longer rendering circle at &e" + xc + ", " + yc + ", " + zc + " &6with radius of &e" + r + "!");
+}
 
 register("renderWorld", () => {
     if (!rendering) return;
 
     fPArray.forEach((point) => {
-        const values = point.split(",");
-        const x = Number(values[0]);
-        const z = Number(values[1]);
+        const { x, y, z } = getRenderCoordinates(point);
 
-        RenderLibV2.drawEspBoxV2(x - 0.5, yc, z + 0.5, 1, 1, 1, 0, 0, 1, 1, true);
+        RenderLibV2.drawEspBoxV2(x - 0.5, y, z + 0.5, 1, 1, 1, 0, 0, 1, 1, true);
     });
 });

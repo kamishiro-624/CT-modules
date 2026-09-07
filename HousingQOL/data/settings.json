@@ -1,53 +1,5 @@
 [
     {
-        "category": "Chat",
-        "settings": [
-            {
-                "type": 6,
-                "name": "signFix",
-                "value": true
-            },
-            {
-                "type": 6,
-                "name": "noAsterisk",
-                "value": false
-            },
-            {
-                "type": 6,
-                "name": "chatUtilities",
-                "value": true
-            },
-            {
-                "type": 8,
-                "name": "chatUtilConfig",
-                "options": [
-                    {
-                        "name": "chatUtilTpPlr",
-                        "value": true
-                    },
-                    {
-                        "name": "chatUtilCopyMsg",
-                        "value": true
-                    },
-                    {
-                        "name": "chatUtilHmutePlr",
-                        "value": true
-                    }
-                ]
-            },
-            {
-                "type": 6,
-                "name": "addFormattingCopyMsg",
-                "value": false
-            },
-            {
-                "type": 6,
-                "name": "showFormattingInChat",
-                "value": true
-            }
-        ]
-    },
-    {
         "category": "General",
         "settings": [
             {
@@ -158,6 +110,98 @@
             {
                 "type": 6,
                 "name": "soundLoggerShowPosition",
+                "value": false
+            }
+        ]
+    },
+    {
+        "category": "Chat",
+        "settings": [
+            {
+                "type": 6,
+                "name": "signFix",
+                "value": true
+            },
+            {
+                "type": 6,
+                "name": "noAsterisk",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "chatUtilities",
+                "value": true
+            },
+            {
+                "type": 8,
+                "name": "chatUtilConfig",
+                "options": [
+                    {
+                        "name": "chatUtilTpPlr",
+                        "value": true
+                    },
+                    {
+                        "name": "chatUtilCopyMsg",
+                        "value": true
+                    },
+                    {
+                        "name": "chatUtilHmutePlr",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "type": 6,
+                "name": "addFormattingCopyMsg",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "showFormattingInChat",
+                "value": true
+            }
+        ]
+    },
+    {
+        "category": "Building",
+        "settings": [
+            {
+                "type": 6,
+                "name": "circleGenerator",
+                "value": true
+            },
+            {
+                "type": 4,
+                "name": "circleX",
+                "value": ""
+            },
+            {
+                "type": 4,
+                "name": "circleY",
+                "value": ""
+            },
+            {
+                "type": 4,
+                "name": "circleZ",
+                "value": ""
+            },
+            {
+                "type": 4,
+                "name": "circleR",
+                "value": "10"
+            },
+            {
+                "type": 2,
+                "name": "circleRenderBtn"
+            },
+            {
+                "type": 6,
+                "name": "circleUpright",
+                "value": false
+            },
+            {
+                "type": 6,
+                "name": "circleRotate",
                 "value": false
             }
         ]
