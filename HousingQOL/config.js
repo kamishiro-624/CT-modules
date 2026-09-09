@@ -93,7 +93,7 @@ mainConfig.addSwitch({
   configName: "safeCreative",
   title: "Safe Creative Mode",
   description: "Prevents the breaking of specified blocks while in creative mode.",
-  category: "General",
+  category: "Building",
   value: false
 });
 
@@ -139,7 +139,7 @@ mainConfig.addMultiCheckbox({
   configName: "safeCreativeConfig",
   title: "Safe Creative Blocks",
   description: "Toggle a list of preset blocks for Safe Creative. (You can scroll in the menu.)",
-  category: "General",
+  category: "Building",
   placeHolder: "Edit",
 
   options: safeCreativeConfigOptions,
@@ -153,7 +153,7 @@ mainConfig.addTextInput({
   configName: "customSafeCreativeConfig",
   title: "Custom Blacklist",
   description: "Put block names with metadata in the custom blacklist, separated by commas. Check README for block list and more info. (Highly recommended!)",
-  category: "General",
+  category: "Building",
   value: "",
   placeHolder: "Grass Block, Wool:3, Stone:A",
 
