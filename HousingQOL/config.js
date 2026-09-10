@@ -269,6 +269,7 @@ mainConfig.addSwitch({
   }
 });
 
+// Circle Generator
 mainConfig.addSwitch({
   configName: "circleGenerator",
   title: "Circle Generator",
@@ -364,6 +365,40 @@ mainConfig.addSwitch({
 
   shouldShow(data) {
     return data.circleGenerator;
+  }
+});
+
+// Auto Accept Party
+mainConfig.addSwitch({
+  configName: "pAutoAccept",
+  title: "Party Auto-Accept",
+  description: "Automatically accepts party invites from all people. Can be configured to whitelist selected people.",
+  category: "Chat",
+  value: false,
+});
+
+mainConfig.addSwitch({
+  configName: "pWhitelistToggle",
+  title: "Party Whitelist",
+  description: "Ignores all party requests except for ones sent by whitelisted people.",
+  category: "Chat",
+  value: false,
+
+  shouldShow(data) {
+    return data.pAutoAccept;
+  }
+});
+
+mainConfig.addTextInput({
+  configName: "paaWhitelist",
+  title: "Edit Whitelist",
+  description: "Provide players to whitelist, seperated by commas.",
+  category: "Chat",
+  value: "",
+  placeHolder: "<player>, <player2>, ...",
+
+  shouldShow(data) {
+    return data.pWhitelistToggle;
   }
 });
 

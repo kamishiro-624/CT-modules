@@ -9,6 +9,7 @@ import "./modules/noAsterisk";
 import "./modules/safeCreative";
 import "./modules/chatUtilities";
 import "./modules/circleGen";
+import "./modules/partyAuto";
 
 register("command", () => {
     settings.openGui();

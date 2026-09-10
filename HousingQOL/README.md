@@ -21,6 +21,8 @@ This module is still in development, so please report any bugs in the issues sec
   - Mute player (/h mute)
 - Circle Generator
   - Render in GUI or with [/rendercircle, /rc]
+- Party invite auto-accept
+  - Whitelisted players only (toggle)
 - Coming soon...
 
 ## How to Configure and Use
