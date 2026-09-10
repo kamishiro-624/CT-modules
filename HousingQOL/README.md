@@ -6,9 +6,12 @@ This module is still in development, so please report any bugs in the issues sec
 - Color Code References [/colorcodes, /cc]
 - Hide the "Unable to locate sign at..." error message
 - Command Aliases
+  - Toggle specific aliases
 - View Variable Values [/viewvariable, /vv]
   - /vv &lt;scope&gt; &lt;player&gt;
 - Sound Logger
+  - Shows pitch, volume, and position (toggle)
+  - Only shows important sounds by default, can show all.
 - Hide asterisks from incoming housing messages
 - Safe Creative - Block list [here](util/scBlockArrays.js).
   - [BLOCK]:[METADATA], ... (eg. Dirt, Grass Block, Wool:3, Stone:A)

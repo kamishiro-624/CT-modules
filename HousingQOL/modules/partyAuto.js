@@ -9,7 +9,14 @@ function acceptParty(player) {
     if (!settings.settings.pAutoAccept) return;
 
     msgArray = player.split(" ");
-    let playerName = msgArray[1];
+    let playerName;
+    if (msgArray.length < 2) {
+        playerName = msgArray[0];
+    } else {
+        playerName = msgArray[1];
+    }
+
+    console.log("detected party invite from " + playerName); // detect when no rank
 
     if (settings.settings.pWhitelistToggle) {
         // detect if string is empty
