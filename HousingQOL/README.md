@@ -26,6 +26,9 @@ This module is still in development, so please report any bugs in the issues sec
   - Render in GUI or with [/rendercircle, /rc]
 - Party invite auto-accept
   - Whitelisted players only (toggle)
+- Hide Players [/hideplayers, /hp]
+  - /hp &lt;player1&gt; &lt;player2&gt; ...
+  - /hp &lt;clear/all/list&gt;
 - Coming soon...
 
 ## How to Configure and Use

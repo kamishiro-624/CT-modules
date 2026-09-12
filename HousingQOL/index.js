@@ -10,6 +10,7 @@ import "./modules/safeCreative";
 import "./modules/chatUtilities";
 import "./modules/circleGen";
 import "./modules/partyAuto";
+import "./commands/hidePlayer";
 
 register("command", () => {
     settings.openGui();
