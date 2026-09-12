@@ -3,7 +3,7 @@
 import settings from "./config";
 
 const REPOSITORY = "https://github.com/kamishiro-624/HousingQOL";
-const REMOTE_METADATA = "https://raw.githubusercontent.com/kamishiro-624/HousingQOL/main/metadata.json";
+const REMOTE_METADATA_API = "https://api.github.com/repos/kamishiro-624/HousingQOL/contents/metadata.json?ref=main";
 const ZIP_URL = `${REPOSITORY}/archive/refs/heads/main.zip`;
 const MODULE_PATH = "./config/ChatTriggers/modules/HousingQOL";
 const TEMP_PATH = "./config/ChatTriggers/modules/.HousingQOL-update";
@@ -86,7 +86,8 @@ function checkForUpdate(manual) {
 		try {
 			const localMetadata = JSON.parse(FileLib.read("HousingQOL", "metadata.json"));
 			const cacheBuster = `?t=${Date.now()}`;
-			const remoteMetadata = JSON.parse(FileLib.getUrlContent(`${REMOTE_METADATA}${cacheBuster}`));
+				const metadataResponse = JSON.parse(FileLib.getUrlContent(`${REMOTE_METADATA_API}&${cacheBuster.slice(1)}`, "HousingQOL-Updater"));
+				const remoteMetadata = JSON.parse(FileLib.decodeBase64(metadataResponse.content.replace(/\s/g, "")));
 
 			if (!isNewer(remoteMetadata.version, localMetadata.version)) {
 				if (manual) ChatLib.chat(`&6&l[Housing QOL] &r&6You are up to date (&e${localMetadata.version}&6).`);
