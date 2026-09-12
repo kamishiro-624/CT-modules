@@ -3,6 +3,15 @@ import DefaultConfig from "../Amaterasu/core/DefaultConfig";
 
 const mainConfig = new DefaultConfig("HousingQOL", "data/settings.json");
 
+  // Auto Updater
+mainConfig.addSwitch({
+  configName: "autoUpdToggle",
+  title: "Auto Updater",
+  description: "Automatically updates your version of HousingQOL when new releases are published. Use /hqolupdate to manually check for updates.",
+  category: "General",
+  value: true
+});
+
   // Sign Fix
 mainConfig.addSwitch({
   configName: "signFix",
