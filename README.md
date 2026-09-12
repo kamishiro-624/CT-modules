@@ -7,14 +7,15 @@ This module is still in development, so please report any bugs in the issues sec
 ### EASY METHOD:
 I haven't published my module on the ChatTriggers website yet, but I will do so very soon. Only then will this method of download be viable.
 ### MANUAL METHOD:
-1. Download the module by clicking the green '<> Code' button, then clicking 'Download ZIP'
-2. Locate the downloaded folder, and extract the contents. (On Windows, right-click &gt; Extract All)<br>
-  2a. **MAKE SURE THAT THE EXTRACTED FOLDER CONTAINS ALL THE FILES, NOT ANOTHER FOLDER WITH THE SAME NAME!**
-3. Move the extracted folder into your `.minecraft/config/ChatTriggers/modules` directory.<br>
-  3a. You can also access this folder by running `/ct files` in game, then navigating into the `modules` folder.
-4. Rename the file to 'HousingQOL' (**IMPORTANT**)
-5. Run `/ct modules` in game and ensure that the downloaded module is present.
-6. Run `/ct refresh` to ensure the module is loaded.
+1. Download the ChatTriggers mod [here](https://chattriggers.com/)
+2. Install the module by clicking the green '<> Code' button, then clicking 'Download ZIP'
+3. Locate the downloaded folder, and extract the contents. (On Windows, right-click &gt; Extract All)<br>
+  3a. **MAKE SURE THAT THE EXTRACTED FOLDER CONTAINS ALL THE FILES, NOT ANOTHER FOLDER WITH THE SAME NAME!**
+4. Move the extracted folder into your `.minecraft/config/ChatTriggers/modules` directory.<br>
+  4a. You can also access this folder by running `/ct files` in game, then navigating into the `modules` folder.
+5. Rename the file to 'HousingQOL' (**IMPORTANT**)
+6. Run `/ct modules` in game and ensure that the downloaded module is present.
+7. Run `/ct refresh` to ensure the module is loaded.
 
 ## Feature List
 - Color Code References [/colorcodes, /cc]

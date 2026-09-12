@@ -70,6 +70,7 @@ function downloadAndInstall(remoteVersion) {
 }
 
 function checkForUpdate(manual) {
+    console.log("Housing QOL is currently checking for updates...");
     if (!settings.settings.autoUpdToggle && !manual) return;
 	new Thread(() => {
 		try {
