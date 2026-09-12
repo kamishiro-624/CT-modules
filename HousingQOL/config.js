@@ -402,6 +402,14 @@ mainConfig.addTextInput({
   }
 });
 
+mainConfig.addSwitch({
+  configName: "autoCollect",
+  title: "Auto Collect",
+  description: "Automatically runs /collect on Cuhtails' Freebuild during Coin Collect Challenges",
+  category: "Miscellaneous",
+  value: false
+});
+
 
 const settings = new Settings("HousingQOL", mainConfig, "data/ColorScheme.json");
 
@@ -409,7 +417,7 @@ settings.onCloseGui(() => settings.configsClass._saveToFile());
 
 // This code block was genuinely confusing, I still don't really know how it works but hopefully I can get a better grasp on it soon...
 settings.setCategorySort((a, b) => {
-  const order = ["General", "Chat", "Building"];
+  const order = ["General", "Chat", "Building", "Miscellaneous"];
   return order.indexOf(a.category) - order.indexOf(b.category);
 }).apply();
 

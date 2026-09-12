@@ -11,6 +11,7 @@ import "./modules/chatUtilities";
 import "./modules/circleGen";
 import "./modules/partyAuto";
 import "./commands/hidePlayer";
+import "./modules/autoCollect";
 
 register("command", () => {
     settings.openGui();
