@@ -13,6 +13,7 @@ const JavaFile = Java.type("java.io.File");
 const Files = Java.type("java.nio.file.Files");
 const Paths = Java.type("java.nio.file.Paths");
 const StandardCopyOption = Java.type("java.nio.file.StandardCopyOption");
+let updateCheckInProgress = false;
 
 function parseVersion(version) {
 	return String(version).replace(/^v/, "").split(".").map(part => parseInt(part, 10) || 0);
@@ -37,7 +38,7 @@ function copyDirectory(source, destination, sourceRoot) {
 
 	files.forEach(file => {
 		const relativePath = sourceRoot.toPath().relativize(file.toPath()).toString().replace(/\\/g, "/");
-		if (relativePath === "data/settings.json") return;
+		if (relativePath === "data/settings.json" || relativePath === "autoUpdate.js") return;
 
 		const target = new JavaFile(destination, file.getName());
 		if (file.isDirectory()) {
@@ -56,6 +57,10 @@ function downloadAndInstall(remoteVersion) {
 	try {
 		FileLib.deleteDirectory(TEMP_PATH);
 		FileLib.unzip(ZIP_PATH, TEMP_PATH);
+		const archiveMetadata = JSON.parse(FileLib.read(new JavaFile(archiveRoot, "metadata.json")));
+		if (archiveMetadata.version !== remoteVersion) {
+			throw new Error(`Downloaded archive version ${archiveMetadata.version} does not match ${remoteVersion}`);
+		}
 		copyDirectory(archiveRoot, moduleRoot, archiveRoot);
 		FileLib.deleteDirectory(TEMP_PATH);
 		FileLib.delete(ZIP_PATH);
@@ -70,12 +75,18 @@ function downloadAndInstall(remoteVersion) {
 }
 
 function checkForUpdate(manual) {
-    console.log("Housing QOL is currently checking for updates...");
-    if (!settings.settings.autoUpdToggle && !manual) return;
+	if (!settings.settings.autoUpdToggle && !manual) return;
+	if (updateCheckInProgress) {
+		if (manual) ChatLib.chat("&6&l[Housing QOL] &r&6An update check is already in progress.");
+		return;
+	}
+
+	updateCheckInProgress = true;
 	new Thread(() => {
 		try {
 			const localMetadata = JSON.parse(FileLib.read("HousingQOL", "metadata.json"));
-			const remoteMetadata = JSON.parse(FileLib.getUrlContent(REMOTE_METADATA));
+			const cacheBuster = `?t=${Date.now()}`;
+			const remoteMetadata = JSON.parse(FileLib.getUrlContent(`${REMOTE_METADATA}${cacheBuster}`));
 
 			if (!isNewer(remoteMetadata.version, localMetadata.version)) {
 				if (manual) ChatLib.chat(`&6&l[Housing QOL] &r&6You are up to date (&e${localMetadata.version}&6).`);
@@ -83,10 +94,12 @@ function checkForUpdate(manual) {
 			}
 
 			ChatLib.chat(`&6&l[Housing QOL] &r&6Downloading update &e${remoteMetadata.version}&6...`);
-			Files.copy(new java.net.URL(ZIP_URL).openStream(), Paths.get(ZIP_PATH), StandardCopyOption.REPLACE_EXISTING);
+			Files.copy(new java.net.URL(`${ZIP_URL}${cacheBuster}`).openStream(), Paths.get(ZIP_PATH), StandardCopyOption.REPLACE_EXISTING);
 			downloadAndInstall(remoteMetadata.version);
 		} catch (error) {
 			if (manual) ChatLib.chat(`&6&l[Housing QOL] &r&cCould not check for updates: ${error}`);
+		} finally {
+			updateCheckInProgress = false;
 		}
 	}).start();
 }
