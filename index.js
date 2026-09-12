@@ -13,6 +13,8 @@ import "./modules/partyAuto";
 import "./commands/hidePlayer";
 import "./modules/autoCollect";
 
+import "./autoUpdate";
+
 register("command", () => {
     settings.openGui();
 }).setName("housingqol").setAliases("hqol", "housingqolsettings", "housingqolconfig");
