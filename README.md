@@ -8,10 +8,12 @@ This module is still in development, so please report any bugs in the issues sec
 I haven't published my module on the ChatTriggers website yet, but I will do so very soon. Only then will this method of download be viable.
 ### MANUAL METHOD:
 1. Download the module by clicking the green '<> Code' button, then clicking 'Download ZIP'
-2. Locate the downloaded folder, and extract the contents. (On Windows, right-click &gt; Extract All)
-2. Move the extracted folder into your `.minecraft/config/ChatTriggers/modules` directory.
-3. Run `/ct modules` in game and ensure that the downloaded module is present.
-4. Run `/ct refresh` to ensure the module is loaded.
+2. Locate the downloaded folder, and extract the contents. (On Windows, right-click &gt; Extract All)<br>
+  2a. **MAKE SURE THAT THE EXTRACTED FOLDER CONTAINS ALL THE FILES, NOT ANOTHER FOLDER WITH THE SAME NAME!**
+3. Move the extracted folder into your `.minecraft/config/ChatTriggers/modules` directory.<br>
+  3a. You can also access this folder by running `/ct files` in game, then navigating into the `modules` folder.
+4. Run `/ct modules` in game and ensure that the downloaded module is present.
+5. Run `/ct refresh` to ensure the module is loaded.
 
 ## Feature List
 - Color Code References [/colorcodes, /cc]
